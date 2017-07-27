@@ -1,0 +1,251 @@
+﻿<UserControl x:Class="DevExpress.DevAV.Views.NavigatorMapView"
+    xmlns="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:dxm="http://schemas.devexpress.com/winfx/2008/xaml/map"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    xmlns:viewmodel="clr-namespace:DevExpress.DevAV.ViewModels"
+    xmlns:model="clr-namespace:DevExpress.DevAV;assembly=DevExpress.DevAV.v15.2.Data"
+    xmlns:local="clr-namespace:DevExpress.DevAV"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:views="clr-namespace:DevExpress.DevAV.Views"
+    xmlns:devAv ="clr-namespace:DevExpress.DevAV.ViewModels"
+    mc:Ignorable="d"
+    x:Name="root"
+    d:DesignHeight="663" d:DesignWidth="1183">
+    <dxmvvm:Interaction.Behaviors>
+        <dx:DXMessageBoxService />
+        <dxmvvm:EventToCommand EventName="Loaded" Command="{Binding OnLoadedCommand}" />
+        <dx:DXSplashScreenService ShowSplashScreenOnLoading="True" ViewTemplate="{StaticResource silentWaitIndicator}" SplashScreenStartupLocation="CenterOwner" OwnerSearchMode="IgnoreAssociatedObject"/>
+    </dxmvvm:Interaction.Behaviors>
+    <Grid UseLayoutRounding="True" SnapsToDevicePixels="True">
+        <DockPanel>
+            <dxr:RibbonControl RibbonStyle="Office2010" DockPanel.Dock="Top" ShowApplicationButton="False" RibbonTitleBarVisibility="Collapsed" Name="ribbonControl">
+                <dxr:RibbonControl.PageHeaderItems>
+                    <views:RibbonStyleSelectorItem SelectedRibbonStyle="{Binding RibbonStyle, ElementName=ribbonControl, Mode=OneWayToSource}"/>
+                </dxr:RibbonControl.PageHeaderItems>
+                <dxr:RibbonDefaultPageCategory Caption="defaultCategory">
+                    <dxr:RibbonPage Caption="CONTACT">
+                        <dxr:RibbonPageGroup Caption="Save">
+                            <dxb:BarButtonItem Content="Save &amp; Close" Command="{Binding SaveAndCloseCommand}"
+                                    LargeGlyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-save-close-32.png"
+                                    Glyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-save-close-16.png" />
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Close">
+                            <dxb:BarButtonItem Content="Close" Command="{Binding CloseCommand}"
+                                                   LargeGlyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-close-32.png"
+                                                   Glyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-close-16.png"/>
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Route Options">
+                            <dxb:BarCheckItem Content="Driving" Command="{Binding CalculateRouteDrivingCommand}" GroupIndex="1"
+                                                  LargeGlyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-driving-32.png"
+                                                  Glyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-driving-16.png"/>
+                            <dxb:BarCheckItem Content="Walking" Command="{Binding CalculateRouteWalkingCommand}" GroupIndex="1"
+                                                  LargeGlyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-walking-32.png"
+                                                  Glyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-walking-16.png"
+                                                  IsVisible="{Binding IsWalkingAvailable}"/>
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="DevExpress">
+                            <dxb:BarButtonItem Content="Getting Started" RibbonStyle="Large"
+                                    Command="{Binding LinksViewModel.GettingStartedCommand}"
+                                    Glyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-getting-started-16.png"
+                                    LargeGlyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-getting-started-32.png"/>
+                            <dxb:BarButtonItem Content="Get Free Support" RibbonStyle="Large"
+                                    Command="{Binding LinksViewModel.GetFreeSupportCommand}"
+                                    Glyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-support-16.png"
+                                    LargeGlyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-support-32.png"/>
+                            <dxb:BarButtonItem Content="Buy Now" RibbonStyle="Large"
+                                    Command="{Binding LinksViewModel.BuyNowCommand}"
+                                    Glyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-buy-16.png"
+                                    LargeGlyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-buy-32.png"/>
+                            <dxb:BarButtonItem Content="About" RibbonStyle="Large"
+                                    Command="{Binding LinksViewModel.AboutCommand}"
+                                    Glyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-about-16.png"
+                                    LargeGlyph="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-about-32.png"/>
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
+                </dxr:RibbonDefaultPageCategory>
+            </dxr:RibbonControl>
+            <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom"/>
+            <Grid>
+                <Grid.Resources>
+                    <dxmvvm:ObjectToObjectConverter x:Key="ManeuverToDistanceVisibilityConverter" DefaultTarget="Visible">
+                        <dxmvvm:MapItem Source="DepartStart" Target="Collapsed"/>
+                        <dxmvvm:MapItem Source="ArriveFinish" Target="Collapsed"/>
+                    </dxmvvm:ObjectToObjectConverter>
+                    <dxmvvm:ObjectToObjectConverter x:Key="ManeuverToImageConverter">
+                        <dxmvvm:MapItem Source="DepartStart">
+                            <dxmvvm:MapItem.Target>
+                                <DataTemplate>
+                                    <Image Stretch="None" Source="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/MapItems/icon-A-32.png"/>
+                                </DataTemplate>
+                            </dxmvvm:MapItem.Target>
+                        </dxmvvm:MapItem>
+                        <dxmvvm:MapItem Source="ArriveFinish">
+                            <dxmvvm:MapItem.Target>
+                                <DataTemplate>
+                                    <Image Stretch="None" Source="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/MapItems/icon-B-32.png"/>
+                                </DataTemplate>
+                            </dxmvvm:MapItem.Target>
+                        </dxmvvm:MapItem>
+                        <dxmvvm:MapItem Source="TurnLeft">
+                            <dxmvvm:MapItem.Target>
+                                <DataTemplate>
+                                    <Image Stretch="None" Source="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/MapItems/icon-arrow-left-32.png"/>
+                                </DataTemplate>
+                            </dxmvvm:MapItem.Target>
+                        </dxmvvm:MapItem>
+                        <dxmvvm:MapItem Source="TurnRight">
+                            <dxmvvm:MapItem.Target>
+                                <DataTemplate>
+                                    <Image Stretch="None" Source="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/MapItems/icon-arrow-right-32.png"/>
+                                </DataTemplate>
+                            </dxmvvm:MapItem.Target>
+                        </dxmvvm:MapItem>
+                        <dxmvvm:MapItem Source="KeepStraight">
+                            <dxmvvm:MapItem.Target>
+                                <DataTemplate>
+                                    <Image Stretch="None" Source="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/MapItems/icon-arrow-forward-32.png"/>
+                                </DataTemplate>
+                            </dxmvvm:MapItem.Target>
+                        </dxmvvm:MapItem>
+                        <dxmvvm:MapItem Source="BearLeft">
+                            <dxmvvm:MapItem.Target>
+                                <DataTemplate>
+                                    <Image Stretch="None" Source="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/MapItems/icon-arrow-bear-left-32.png"/>
+                                </DataTemplate>
+                            </dxmvvm:MapItem.Target>
+                        </dxmvvm:MapItem>
+                        <dxmvvm:MapItem Source="BearRight">
+                            <dxmvvm:MapItem.Target>
+                                <DataTemplate>
+                                    <Image Stretch="None" Source="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/MapItems/icon-arrow-bear-right-32.png"/>
+                                </DataTemplate>
+                            </dxmvvm:MapItem.Target>
+                        </dxmvvm:MapItem>
+                    </dxmvvm:ObjectToObjectConverter>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <dxm:MapControl Name="mapControl" CenterPoint="{Binding CenterPoint}">
+                    <dxmvvm:Interaction.Behaviors>
+                        <local:MapPushpinsService/>
+                    </dxmvvm:Interaction.Behaviors>
+                    <dxm:ImageTilesLayer>
+                        <dxm:ImageTilesLayer.DataProvider>
+                            <dxm:BingMapDataProvider Kind="Road" BingKey="{x:Static devAv:MapViewModelBase.BingKey}"/>
+                        </dxm:ImageTilesLayer.DataProvider>
+                    </dxm:ImageTilesLayer>
+                    <dxm:VectorLayer SelectedItem="SelectedItineraryItem">
+                        <dxm:VectorLayer.Data>
+                            <dxm:ListSourceDataAdapter DataSource="{Binding ActiveItinerary}">
+                                <dxm:ListSourceDataAdapter.Mappings>
+                                    <dxm:MapItemMappingInfo Longitude="Location.Longitude" Latitude="Location.Latitude"/>
+                                </dxm:ListSourceDataAdapter.Mappings>
+                                <dxm:ListSourceDataAdapter.ItemSettings>
+                                    <dxm:MapCustomElementSettings>
+                                        <dxm:MapCustomElementSettings.ContentTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Ellipse Stroke="#FF7092BE" Fill="#01000000" Width="10" Height="10" StrokeThickness="2">
+                                                        <Ellipse.RenderTransform>
+                                                            <TranslateTransform X="-5" Y="-5"/>
+                                                        </Ellipse.RenderTransform>
+                                                    </Ellipse>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </dxm:MapCustomElementSettings.ContentTemplate>
+                                    </dxm:MapCustomElementSettings>
+                                </dxm:ListSourceDataAdapter.ItemSettings>
+                            </dxm:ListSourceDataAdapter>
+                        </dxm:VectorLayer.Data>
+                    </dxm:VectorLayer>
+                    <dxm:InformationLayer EnableHighlighting="true">
+                        <dxm:InformationLayer.DataProvider>
+                            <dxm:BingGeocodeDataProvider BingKey="{x:Static devAv:MapViewModelBase.BingKey}" LayerItemsGenerating="BingGeocodeDataProvider_LayerItemsGenerating" MaxVisibleResultCount="1" ProcessMouseEvents="{Binding IsEditingMode}"/>
+                        </dxm:InformationLayer.DataProvider>
+                    </dxm:InformationLayer>
+                    <dxm:InformationLayer EnableHighlighting="False">
+                        <dxmvvm:Interaction.Behaviors>
+                            <local:MapRouteService/>
+                        </dxmvvm:Interaction.Behaviors>
+                        <dxm:InformationLayer.DataProvider>
+                            <dxm:BingRouteDataProvider BingKey="{x:Static devAv:MapViewModelBase.BingKey}" LayerItemsGenerating="BingRouteDataProvider_LayerItemsGenerating">
+                                <dxm:BingRouteDataProvider.RouteStrokeStyle>
+                                    <dxm:StrokeStyle Thickness="10" DashCap="Round" StartLineCap="Round" EndLineCap="Round" />
+                                </dxm:BingRouteDataProvider.RouteStrokeStyle>
+                            </dxm:BingRouteDataProvider>
+                        </dxm:InformationLayer.DataProvider>
+                    </dxm:InformationLayer>
+                    <dxm:InformationLayer EnableHighlighting="true">
+                        <dxm:InformationLayer.DataProvider>
+                            <dxm:BingSearchDataProvider BingKey="{x:Static devAv:MapViewModelBase.BingKey}" LayerItemsGenerating="BingGeocodeDataProvider_LayerItemsGenerating"/>
+                        </dxm:InformationLayer.DataProvider>
+                    </dxm:InformationLayer>
+                </dxm:MapControl>
+                <Grid Grid.Column="1" Width="500">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ContentPresenter Margin="10" Grid.ColumnSpan="2" Content="{Binding DetailsForm, ElementName=root}"/>
+                    <StackPanel HorizontalAlignment="Right" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="0,0,14,0" >
+                        <Button Style="{StaticResource BitmapButton}" Content="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-driving-16.png"
+                                                Command="{Binding CalculateRouteDrivingCommand}"/>
+                        <Button Style="{StaticResource BitmapButton}" Margin="20,0,0,0" Content="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/icon-walking-16.png"
+                                                Command="{Binding CalculateRouteWalkingCommand}" Visibility="{Binding IsWalkingAvailable, Converter={dxmvvm:BooleanToVisibilityConverter}}"/>
+                    </StackPanel>
+                    <Image Margin="10,0,0,0" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0" Stretch="None" Source="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/MapItems/icon-A-32.png"/>
+                    <dxe:TextEdit Margin="10" Grid.Row="2" Grid.Column="1" EditValue="{Binding StartingAddress}" IsReadOnly="True"/>
+                    <Button Style="{StaticResource BitmapButton}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,15,0"
+                                            Content="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/MapItems/icon-revert-direction-14.png"
+                                            Command="{Binding SwapCommand}"/>
+                    <Image Margin="10,0,0,0" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="0" Stretch="None" Source="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/MapItems/icon-B-32.png"/>
+                    <dxe:TextEdit Margin="10" Grid.Row="4" Grid.Column="1" EditValue="{Binding DestinationAddress}" IsReadOnly="True"/>
+                    <ListView ItemsSource="{Binding ActiveItinerary}" SelectedItem="{Binding SelectedItineraryItem}" Margin="10" Grid.Row="5" Grid.Column="1" BorderThickness="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="35"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <ContentControl ContentTemplate="{Binding Maneuver, Converter={StaticResource ManeuverToImageConverter}}"/>
+                                    <Grid Grid.Column="1" VerticalAlignment="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock FontSize="14" Visibility="{Binding Maneuver, Converter={StaticResource ManeuverToDistanceVisibilityConverter}}">
+                                            <TextBlock.Text>
+                                                <Binding Path="Distance" StringFormat="{}{0:n1} mi"/>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <TextBlock FontSize="14" Grid.Row="1" Text="{Binding ManeuverInstruction}" TextWrapping="Wrap"/>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</UserControl>

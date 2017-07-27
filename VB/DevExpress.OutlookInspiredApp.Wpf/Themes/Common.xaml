@@ -1,0 +1,85 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:devAV="clr-namespace:DevExpress.DevAV"
+    xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
+    xmlns:view="clr-namespace:DevExpress.DevAV.Views"
+    xmlns:viewModel="clr-namespace:DevExpress.DevAV.ViewModels"
+    xmlns:local="clr-namespace:DevExpress.DevAV">
+
+    <DataTemplate DataType="{x:Type dxmvvm:EnumMemberInfo}" x:Key="OutlookInspiredEnumMemberInfoTemplate">
+        <StackPanel Orientation="Horizontal">
+            <dxe:ImageEdit Source="{Binding Image}" ShowBorder="False" Margin="2" IsReadOnly="True"/>
+            <TextBlock Text="{Binding Name}" Margin="12,0" FontWeight="Bold" VerticalAlignment="Center"/>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:SortDirectionViewModel}">
+        <dxe:ListBoxEdit ItemTemplate="{StaticResource OutlookInspiredEnumMemberInfoTemplate}" ItemsSource="{dxe:EnumItemsSource AllowImages=False, EnumType=viewModel:SortOrderPrintMode}" EditValue="{Binding SortDirection}" />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:SortByDateViewModel}">
+        <dxe:ListBoxEdit ItemTemplate="{StaticResource OutlookInspiredEnumMemberInfoTemplate}" ItemsSource="{dxe:EnumItemsSource AllowImages=False, EnumType=viewModel:SortByDatePrintMode}" EditValue="{Binding SortDirection}" />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:SortByViewModel}">
+        <dxe:ListBoxEdit ItemTemplate="{StaticResource OutlookInspiredEnumMemberInfoTemplate}" ItemsSource="{dxe:EnumItemsSource AllowImages=False, EnumType=viewModel:SortByPrintMode}" EditValue="{Binding SortDirection}" />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:SortDirectionAndDateRangeViewModel}">
+        <dxlc:LayoutGroup Orientation="Vertical">
+            <dxe:ListBoxEdit ItemTemplate="{StaticResource OutlookInspiredEnumMemberInfoTemplate}" ItemsSource="{dxe:EnumItemsSource AllowImages=False, EnumType=viewModel:SortOrderPrintMode}" EditValue="{Binding SortDirection}" />
+            <TextBlock Text="Range" FontSize="22"/>
+            <dxe:DateEdit EditValue="{Binding FromDate, Mode=TwoWay}"/>
+            <dxe:DateEdit EditValue="{Binding ToDate, Mode=TwoWay}"/>
+        </dxlc:LayoutGroup>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:SortByAndDateRangeViewModel}">
+        <dxlc:LayoutGroup Orientation="Vertical">
+            <dxe:ListBoxEdit ItemTemplate="{StaticResource OutlookInspiredEnumMemberInfoTemplate}" ItemsSource="{dxe:EnumItemsSource AllowImages=False, EnumType=viewModel:SortByPrintMode}" EditValue="{Binding SortDirection}" />
+            <TextBlock Text="Range" FontSize="22"/>
+            <dxe:DateEdit EditValue="{Binding FromDate, Mode=TwoWay}"/>
+            <dxe:DateEdit EditValue="{Binding ToDate, Mode=TwoWay}"/>
+        </dxlc:LayoutGroup>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:EmployeeEvaluationsPrintModeViewModel}">
+        <dxe:ListBoxEdit ItemTemplate="{StaticResource OutlookInspiredEnumMemberInfoTemplate}" ItemsSource="{dxe:EnumItemsSource AllowImages=False, EnumType=viewModel:EmployeeEvaluationsPrintMode}" EditValue="{Binding EmployeeEvaluationsPrintMode}" />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:CustomerContactsPrintModeViewModel}">
+        <dxe:ListBoxEdit ItemTemplate="{StaticResource OutlookInspiredEnumMemberInfoTemplate}" ItemsSource="{dxe:EnumItemsSource AllowImages=False, EnumType=viewModel:CustomerContactsPrintMode}" EditValue="{Binding CustomerContactsPrintMode}" />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:SelectYearsViewModel}">
+        <dxe:ComboBoxEdit ShowSizeGrip="False" IsTextEditable="False" SeparatorString="," ShowCustomItems="True"
+                          ItemsSource="{Binding AvailableYears}"
+                          Text="{Binding Years, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <dxe:ComboBoxEdit.StyleSettings>
+                <dxe:CheckedComboBoxStyleSettings />
+            </dxe:ComboBoxEdit.StyleSettings>
+        </dxe:ComboBoxEdit>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModel:ProductImagesPrintModeViewModel}">
+        <dxe:ListBoxEdit ItemTemplate="{StaticResource OutlookInspiredEnumMemberInfoTemplate}" ItemsSource="{dxe:EnumItemsSource AllowImages=False, EnumType=viewModel:ProductImagesPrintMode}" EditValue="{Binding ProductImagesPrintMode}" />
+    </DataTemplate>
+    <dxmvvm:ObjectToObjectConverter x:Key="personPrefixToImageConverter">
+        <dxmvvm:MapItem Target="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/Doctor.png" Source="Dr" />
+        <dxmvvm:MapItem Target="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/Mr.png" Source="Mr" />
+        <dxmvvm:MapItem Target="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/Ms.png" Source="Ms" />
+        <dxmvvm:MapItem Target="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/Miss.png" Source="Miss" />
+        <dxmvvm:MapItem Target="pack://application:,,,/DevExpress.OutlookInspiredApp.Wpf;component/Resources/Mrs.png" Source="Mrs" />
+    </dxmvvm:ObjectToObjectConverter>
+    <DataTemplate x:Key="fileViewTemplate">
+        <Grid Width="80" ToolTip="{Binding Name}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Stretch="None" Source="{Binding Icon}"/>
+            <TextBlock Grid.Row="1" Text="{Binding DisplayName}" Margin="0,5,0,0" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+        </Grid>
+    </DataTemplate>
+
+
+</ResourceDictionary>

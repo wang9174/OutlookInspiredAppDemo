@@ -1,0 +1,867 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3B37908-DE44-4835-B539-18633C8F6647}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace></RootNamespace>
+    <AssemblyName>DevExpress.OutlookInspiredApp.Wpf</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ClickOnce Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ClickOnce Debug\</OutputPath>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DefineConstants>CLICKONCE=True</DefineConstants>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ClickOnce Release|AnyCPU'">
+    <OutputPath>bin\ClickOnce Release\</OutputPath>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DefineConstants>CLICKONCE=True</DefineConstants>
+    <Optimize>true</Optimize>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.DevAV.v15.2.Data"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.DevAV.v15.2.Reports"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.PivotGrid.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.SpellChecker.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Gauges.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.PivotGrid.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.SpellChecker.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.XtraReports.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Spreadsheet.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Spreadsheet.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Docs.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="EntityFramework">
+      <HintPath></HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Data.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Images.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Map.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Mvvm.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Office.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Pdf.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Pdf.v15.2.Drawing"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Printing.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.RichEdit.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Charts.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Controls.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Core.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v15.2.Extensions"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Map.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.NavBar.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.DocumentViewer.v15.2.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.PdfViewer.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.RichEdit.v15.2"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="PresentationCore"><Private>False</Private></Reference>
+    <Reference Include="PresentationFramework"><Private>False</Private></Reference>
+    <Reference Include="System"><Private>False</Private></Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations"><Private>False</Private></Reference>
+    <Reference Include="System.Core"><Private>False</Private></Reference>
+    <Reference Include="System.Data.Entity"><Private>False</Private></Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.97.0, Culture=neutral, PublicKeyToken=4c3bc44151be4b47">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath></HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.97.0, Culture=neutral, PublicKeyToken=4c3bc44151be4b47">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath></HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing"><Private>False</Private></Reference>
+    <Reference Include="System.Printing"><Private>False</Private></Reference>
+    <Reference Include="System.Windows.Forms"><Private>False</Private></Reference>
+    <Reference Include="System.Xaml"><Private>False</Private></Reference>
+    <Reference Include="System.Xml.Linq"><Private>False</Private></Reference>
+    <Reference Include="System.Data.DataSetExtensions"><Private>False</Private></Reference>
+    <Reference Include="Microsoft.CSharp"><Private>False</Private></Reference>
+    <Reference Include="System.Data"><Private>False</Private></Reference>
+    <Reference Include="System.Deployment"><Private>False</Private></Reference>
+    <Reference Include="System.Xml"><Private>False</Private></Reference>
+    <Reference Include="UIAutomationProvider"><Private>False</Private></Reference>
+    <Reference Include="WindowsBase"><Private>False</Private></Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Shapes" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Navigation" />
+    <Import Include="System.Windows" />
+    <Import Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application.xaml.vb">
+      <DependentUpon>Application.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Behaviors\AdvancedDisplayTextBehavior.vb" />
+    <Compile Include="Behaviors\GridColumnsBehavior.vb" />
+    <Compile Include="Behaviors\GridGroupingBehavior.vb" />
+    <Compile Include="Behaviors\SpellCheckerRichEditBehavior.vb" />
+    <Compile Include="Behaviors\TreeViewSelectedItemBehavior.vb" />
+    <Compile Include="Behaviors\ZoomToFitMapBehavior.vb" />
+    <Compile Include="Common\CommonResources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\DataModel\DbExceptions.vb" />
+    <Compile Include="Common\DataModel\DesignTimeReadOnlyRepository.vb" />
+    <Compile Include="Common\DataModel\DesignTimeRepository.vb" />
+    <Compile Include="Common\DataModel\DesignTimeUnitOfWork.vb" />
+    <Compile Include="Common\DataModel\EntityFramework\DbExceptionsConverter.vb" />
+    <Compile Include="Common\DataModel\EntityFramework\DbReadOnlyRepository.vb" />
+    <Compile Include="Common\DataModel\EntityFramework\DbRepository.vb" />
+    <Compile Include="Common\DataModel\EntityFramework\DbUnitOfWork.vb" />
+    <Compile Include="Common\DataModel\EntityState.vb" />
+    <Compile Include="Common\DataModel\IReadOnlyRepository.vb" />
+    <Compile Include="Common\DataModel\IRepository.vb" />
+    <Compile Include="Common\DataModel\IUnitOfWork.vb" />
+    <Compile Include="Common\DataModel\UnitOfWorkBase.vb" />
+    <Compile Include="Common\Utils\DbExtensions.vb" />
+    <Compile Include="Common\Utils\ExpressionHelper.vb" />
+    <Compile Include="Common\Utils\FilesHelper.vb" />
+    <Compile Include="Common\ViewModel\CollectionViewModel.vb" />
+    <Compile Include="Common\ViewModel\DocumentsViewModel.vb" />
+    <Compile Include="Common\ViewModel\EntitiesViewModel.vb" />
+    <Compile Include="Common\ViewModel\ISingleObjectViewModel.vb" />
+    <Compile Include="Common\ViewModel\LookUpEntitiesViewModel.vb" />
+    <Compile Include="Common\ViewModel\Messages.vb" />
+    <Compile Include="Common\ViewModel\PeekCollectionViewModel.vb" />
+    <Compile Include="Common\ViewModel\ReadOnlyCollectionViewModel.vb" />
+    <Compile Include="Common\ViewModel\Services\IMainWindowService.vb" />
+    <Compile Include="Common\ViewModel\Services\IReportService.vb" />
+    <Compile Include="Common\ViewModel\Services\IWorkspaceService.vb" />
+    <Compile Include="Common\ViewModel\SingleObjectViewModel.vb" />
+    <Compile Include="Common\View\Behaviors\ExpandSelectedRowBehavior.vb" />
+    <Compile Include="Common\View\Behaviors\RichEditControlCustomizeMergeFieldsBehavior.vb" />
+    <Compile Include="Common\View\ExceptionHelper.vb" />
+    <Compile Include="Common\View\Services\MainWindowService.vb" />
+    <Compile Include="Common\View\Services\ReportService.vb" />
+    <Compile Include="Common\View\Services\WorkspaceService.vb" />
+    <Compile Include="Controls\AdvancedNavBarGroup.vb" />
+    <Compile Include="Converters\AbsoluteToLocalConverter.vb" />
+    <Compile Include="Converters\AddressToGeoPointConverter.vb" />
+    <Compile Include="Converters\CategoryColorConverter.vb" />
+    <Compile Include="Converters\DependencyObjectTypeToBoolConverter.vb" />
+    <Compile Include="Converters\HalfValueConverter.vb" />
+    <Compile Include="Converters\IntToHoursConverter.vb" />
+    <Compile Include="Converters\PictureConverter.vb" />
+    <Compile Include="Converters\SelectedItemsConverter.vb" />
+    <Compile Include="DevAVDbDataModel\DesignTimeDevAVDbUnitOfWork.vb" />
+    <Compile Include="DevAVDbDataModel\DevAVDbUnitOfWork.vb" />
+    <Compile Include="DevAVDbDataModel\IDevAVDbUnitOfWork.vb" />
+    <Compile Include="DevAVDbDataModel\UnitOfWorkSource.vb" />
+    <Compile Include="DXSplashScreen\SplashScreenWindow.xaml.vb">
+      <DependentUpon>SplashScreenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Filtering\ViewModel\FilterInfo.vb" />
+    <Compile Include="Filtering\ViewModel\FilterItem.vb" />
+    <Compile Include="Filtering\ViewModel\FilterTreeModelPageSpecificSettings.vb" />
+    <Compile Include="Filtering\ViewModel\IFilterTreeModelPageSpecificSettings.vb" />
+    <Compile Include="Filtering\ViewModel\ISupportFiltering.vb" />
+    <Compile Include="Services\PivotCustomFilterContainerService.vb" />
+    <Compile Include="Services\MapPushpinsService.vb" />
+    <Compile Include="Services\MapRouteService.vb" />
+    <Compile Include="ViewModels\Analysis.vb" />
+    <Compile Include="ViewModels\AnalysysTemplatesHelper.vb" />
+    <Compile Include="ViewModels\CitiesMapViewModel.vb" />
+    <Compile Include="ViewModels\CollectionViewKind.vb" />
+    <Compile Include="ViewModels\Customer\CustomerAnalysisViewModel.vb" />
+    <Compile Include="ViewModels\Customer\CustomerCollectionViewModel.vb" />
+    <Compile Include="ViewModels\Customer\CustomerCollectionViewModel.partial.vb" />
+    <Compile Include="ViewModels\Customer\CustomerMapViewModel.vb" />
+    <Compile Include="ViewModels\Customer\CustomerStatisticsViewModel.vb" />
+    <Compile Include="Filtering\ViewModel\CustomFilterViewModel.vb" />
+    <Compile Include="ViewModels\DevAVDbViewModel.vb" />
+    <Compile Include="ViewModels\EmployeeTask\EmployeeAssignViewModel.vb" />
+    <Compile Include="ViewModels\EmployeeTask\EmployeeTaskCollectionViewModel.vb" />
+    <Compile Include="ViewModels\EmployeeTask\EmployeeTaskCollectionViewModel.partial.vb" />
+    <Compile Include="ViewModels\EmployeeTask\EmployeeTaskDetailsCollectionViewModel.vb" />
+    <Compile Include="ViewModels\EmployeeTask\EmployeeTaskDetailViewModel.vb" />
+    <Compile Include="ViewModels\EmployeeTask\EmployeeTaskViewModel.vb" />
+    <Compile Include="ViewModels\EmployeeTask\EmployeeTaskViewModel.partial.vb" />
+    <Compile Include="ViewModels\Employee\EmployeeCollectionViewModel.vb" />
+    <Compile Include="ViewModels\Employee\EmployeeCollectionViewModel.partial.vb" />
+    <Compile Include="ViewModels\Employee\EmployeeContactsViewModel.vb" />
+    <Compile Include="ViewModels\Employee\EmployeeQuickLetterViewModel.vb" />
+    <Compile Include="ViewModels\Employee\EmployeeViewModel.vb" />
+    <Compile Include="ViewModels\Employee\EmployeeViewModel.partial.vb" />
+    <Compile Include="Filtering\ViewModel\FiltersSettings.vb" />
+    <Compile Include="Filtering\ViewModel\FilterTreeViewModel.vb" />
+    <Compile Include="ViewModels\LinksViewModel.vb" />
+    <Compile Include="ViewModels\MailMergeTemplatesHelper.vb" />
+    <Compile Include="ViewModels\MailMergeViewModel.vb" />
+    <Compile Include="ViewModels\MapViewModelBase.vb" />
+    <Compile Include="ViewModels\NavigatorMapViewModel.vb" />
+    <Compile Include="ViewModels\Order\OrderCollectionViewModel.vb" />
+    <Compile Include="ViewModels\Order\OrderCollectionViewModel.partial.vb" />
+    <Compile Include="ViewModels\Product\ProductAnalysisViewModel.vb" />
+    <Compile Include="ViewModels\Product\ProductCollectionViewModel.vb" />
+    <Compile Include="ViewModels\Product\ProductCollectionViewModel.partial.vb" />
+    <Compile Include="ViewModels\Product\ProductMapViewModel.vb" />
+    <Compile Include="ViewModels\Product\ProductStatisticsViewModel.vb" />
+    <Compile Include="ViewModels\Product\ProductViewModel.vb" />
+    <Compile Include="ViewModels\Product\ProductViewModel.partial.vb" />
+    <Compile Include="ViewModels\Quote\QuoteCollectionViewModel.vb" />
+    <Compile Include="ViewModels\Quote\QuoteCollectionViewModel.partial.vb" />
+    <Compile Include="ViewModels\Quote\QuoteMapViewModel.vb" />
+    <Compile Include="ViewModels\ReportInfoFactory.vb" />
+    <Compile Include="ViewModels\StatisticsViewModelBase.vb" />
+    <Compile Include="ViewModels\ViewSettingsViewModel.vb" />
+    <Compile Include="Views\AboutView.xaml.vb">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CitiesMapView.xaml.vb">
+      <DependentUpon>CitiesMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\CustomerAnalysis.xaml.vb">
+      <DependentUpon>CustomerAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\CustomerCollectionView.xaml.vb">
+      <DependentUpon>CustomerCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\CustomerPanelView.xaml.vb">
+      <DependentUpon>CustomerPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Filtering\View\CustomFilterView.xaml.vb">
+      <DependentUpon>CustomFilterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DevAVDbView.xaml.vb">
+      <DependentUpon>DevAVDbView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmployeeAssignView.xaml.vb">
+      <DependentUpon>EmployeeAssignView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmployeeCollectionView.xaml.vb">
+      <DependentUpon>EmployeeCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmployeeMailMergeView.xaml.vb">
+      <DependentUpon>EmployeeMailMergeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmployeeMapView.xaml.vb">
+      <DependentUpon>EmployeeMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmployeePanelView.xaml.vb">
+      <DependentUpon>EmployeePanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmployeeTaskCollectionView.xaml.vb">
+      <DependentUpon>EmployeeTaskCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmployeeTaskDetailView.xaml.vb">
+      <DependentUpon>EmployeeTaskDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmployeeTaskView.xaml.vb">
+      <DependentUpon>EmployeeTaskView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmployeeView.xaml.vb">
+      <DependentUpon>EmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Filtering\View\FilterTreeView.xaml.vb">
+      <DependentUpon>FilterTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NavigatorMapView.xaml.vb">
+      <DependentUpon>NavigatorMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order\OrderCollectionView.xaml.vb">
+      <DependentUpon>OrderCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order\OrderMapView.xaml.vb">
+      <DependentUpon>OrderMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PeekCollectionView.xaml.vb">
+      <DependentUpon>PeekCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Product\ProductAnalysis.xaml.vb">
+      <DependentUpon>ProductAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Product\ProductCollectionView.xaml.vb">
+      <DependentUpon>ProductCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Quote\QuoteCollectionView.xaml.vb">
+      <DependentUpon>QuoteCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Quote\QuoteMapView.xaml.vb">
+      <DependentUpon>QuoteMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.vb">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Resources\Analysis\CustomerAnalysis.xlsx" />
+    <EmbeddedResource Include="Resources\Analysis\ProductAnalysis.xlsx" />
+    <EmbeddedResource Include="Resources\MailMerge\Employee of the Month.rtf" />
+    <EmbeddedResource Include="Resources\MailMerge\Employee of the Month.snx" />
+    <EmbeddedResource Include="Resources\MailMerge\Employee Probation Notice.rtf" />
+    <EmbeddedResource Include="Resources\MailMerge\Employee Probation Notice.snx" />
+    <EmbeddedResource Include="Resources\MailMerge\Employee Service Excellence.rtf" />
+    <EmbeddedResource Include="Resources\MailMerge\Employee Service Excellence.snx" />
+    <EmbeddedResource Include="Resources\MailMerge\Employee Thank You Note.rtf" />
+    <EmbeddedResource Include="Resources\MailMerge\Employee Thank You Note.snx" />
+    <EmbeddedResource Include="Resources\MailMerge\Order.snx" />
+    <EmbeddedResource Include="Resources\MailMerge\Sales Analysys Report.snx" />
+    <EmbeddedResource Include="Resources\MailMerge\Sales Invoice.snx" />
+    <EmbeddedResource Include="Resources\MailMerge\Sales Order Summary Report.snx" />
+    <EmbeddedResource Include="Resources\MailMerge\Sales Thank You.rtf" />
+    <EmbeddedResource Include="Resources\MailMerge\Sales Thank You.snx" />
+    <EmbeddedResource Include="Resources\MailMerge\Welcome to DevAV.rtf" />
+    <EmbeddedResource Include="Resources\MailMerge\Welcome to DevAV.snx" />
+    <Resource Include="Resources\icon-add-file-16.png" />
+    <Resource Include="Resources\icon-Hide-product-img-32.png" />
+    <Resource Include="Resources\icon-show-product-img-32.png" />
+    <Resource Include="Resources\SplashScreen\Image.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\SplashScreen\Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\SplashScreen\Shadow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DXSplashScreen\SplashScreenWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Shared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AboutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CitiesMapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Customer\CustomerAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customer\CustomerCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Customer\CustomerPanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Filtering\View\CustomFilterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DevAVDbView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Employee\EmployeeAssignView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Employee\EmployeeCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Employee\EmployeeMailMergeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Employee\EmployeeMapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Employee\EmployeePanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Employee\EmployeeTaskCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Employee\EmployeeTaskDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Employee\EmployeeTaskView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Employee\EmployeeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Filtering\View\FilterTreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NavigatorMapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Order\OrderCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Order\OrderMapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PeekCollectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Product\ProductAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Product\ProductCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Quote\QuoteCollectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Quote\QuoteMapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Dll\EntityFramework.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Resources\PrintItems\Preview\DefaultPrinter_32x32.png" />
+    <Resource Include="Resources\PrintItems\Preview\Fax_32x32.png" />
+    <Resource Include="Resources\PrintItems\Preview\Printer_32x32.png" />
+    <Resource Include="Resources\PrintItems\icon-cusomer-profile-report-32.png" />
+    <Resource Include="Resources\PrintItems\icon-customer-contact-directory-16.png" />
+    <Resource Include="Resources\PrintItems\icon-customer-contact-directory-32.png" />
+    <Resource Include="Resources\PrintItems\icon-customer-profile-report-16.png" />
+    <Resource Include="Resources\PrintItems\icon-customer-sale-detalis-16.png" />
+    <Resource Include="Resources\PrintItems\icon-customer-sale-detalis-32.png" />
+    <Resource Include="Resources\PrintItems\icon-customer-sales-summary-16.png" />
+    <Resource Include="Resources\PrintItems\icon-customer-sales-summary-32.png" />
+    <Resource Include="Resources\icon-print-due-date-32.png" />
+    <Resource Include="Resources\icon-print-sort-ascending-32.png" />
+    <Resource Include="Resources\icon-print-sort-descinding-32.png" />
+    <Resource Include="Resources\icon-print-start-date-32.png" />
+    <Resource Include="Resources\icon-new-doc-16.png" />
+    <Resource Include="Resources\icon-new-doc-32.png" />
+    <Resource Include="Resources\icon-open-doc-16.png" />
+    <Resource Include="Resources\icon-open-doc-32.png" />
+    <Resource Include="Resources\icon-print-quick-16.png" />
+    <Resource Include="Resources\icon-print-quick-32.png" />
+    <Resource Include="Resources\icon-redo-16.png" />
+    <Resource Include="Resources\icon-redo-32.png" />
+    <Resource Include="Resources\icon-undo-16.png" />
+    <Resource Include="Resources\icon-undo-32.png" />
+    <Resource Include="Resources\icon-cost-analysis-32.png" />
+    <Resource Include="Resources\icon-cost-analysis-16.png" />
+    <Resource Include="Resources\PrintItems\icon-product-order-detail-16.png" />
+    <Resource Include="Resources\PrintItems\icon-product-order-detail-32.png" />
+    <Resource Include="Resources\PrintItems\icon-product-sales-summary-16.png" />
+    <Resource Include="Resources\PrintItems\icon-product-sales-summary-32.png" />
+    <Resource Include="Resources\PrintItems\icon-product-specification-summary-16.png" />
+    <Resource Include="Resources\PrintItems\icon-product-specification-summary-32.png" />
+    <Resource Include="Resources\QuickItems\icon-product-quick-comparisons-16.png" />
+    <Resource Include="Resources\QuickItems\icon-product-quick-sales-report-16.png" />
+    <Resource Include="Resources\QuickItems\icon-product-quick-shippments-16.png" />
+    <Resource Include="Resources\QuickItems\icon-product-quick-top-salesperson-16.png" />
+    <Resource Include="Resources\Overview-Logo.png" />
+    <Resource Include="Resources\MapItems\icon-arrow-bear-left-32.png" />
+    <Resource Include="Resources\MapItems\icon-arrow-bear-right-32.png" />
+    <Resource Include="Resources\icon-scale-16.png" />
+    <Resource Include="Resources\icon-new-opportunities-32.png" />
+    <Resource Include="Resources\icon-new-products-32.png" />
+    <Resource Include="Resources\icon-new-sales-32.png" />
+    <Resource Include="Resources\icon-export-32.png" />
+    <Resource Include="Resources\icon-print-preview-32.png" />
+    <Resource Include="Resources\icon-sales-analysis-16.png" />
+    <Resource Include="Resources\icon-sales-analysis-32.png" />
+    <Resource Include="Resources\icon-save-16.png" />
+    <Resource Include="Resources\icon-save-as-16.png" />
+    <Resource Include="Resources\icon-save-as-32.png" />
+    <Resource Include="Resources\icon-save-close-16.png" />
+    <Resource Include="Resources\icon-support-16.png" />
+    <Resource Include="Resources\icon-task-16.png" />
+    <Resource Include="Resources\icon-view-reset-16.png" />
+    <Resource Include="Resources\icon-walking-16.png" />
+    <Resource Include="Resources\icon-panel-bottom-32.png" />
+    <Resource Include="Resources\icon-panel-off-32.png" />
+    <Resource Include="Resources\icon-panel-right-32.png" />
+    <Resource Include="Resources\icon-print-16.png" />
+    <Resource Include="Resources\icon-print-exclude-evaluations-32.png" />
+    <Resource Include="Resources\icon-print-include-evaluations-32.png" />
+    <Resource Include="Resources\icon-print-preview-16.png" />
+    <Resource Include="Resources\icon-reset-changes-16.png" />
+    <Resource Include="Resources\icon-revers-sort-32.png" />
+    <Resource Include="Resources\icon-new-customers-32.png" />
+    <Resource Include="Resources\icon-new-employee-16.png" />
+    <Resource Include="Resources\icon-new-group-16.png" />
+    <Resource Include="Resources\icon-new-item-16.png" />
+    <Resource Include="Resources\icon-new-opportunities-16.png" />
+    <Resource Include="Resources\icon-new-products-16.png" />
+    <Resource Include="Resources\icon-new-sales-16.png" />
+    <Resource Include="Resources\icon-page-next-16.png" />
+    <Resource Include="Resources\icon-page-prev-16.png" />
+    <Resource Include="Resources\icon-pages-16.png" />
+    <Resource Include="Resources\icon-filter-16.png" />
+    <Resource Include="Resources\icon-fittopage-16.png" />
+    <Resource Include="Resources\icon-folder-panel-16.png" />
+    <Resource Include="Resources\icon-getting-started-16.png" />
+    <Resource Include="Resources\icon-list-16.png" />
+    <Resource Include="Resources\icon-mail-merge-16.png" />
+    <Resource Include="Resources\icon-mapit-16.png" />
+    <Resource Include="Resources\icon-meeting-16.png" />
+    <Resource Include="Resources\icon-navigate-16.png" />
+    <Resource Include="Resources\icon-new-customers-16.png" />
+    <Resource Include="Resources\icon-card-16.png" />
+    <Resource Include="Resources\icon-change-view-16.png" />
+    <Resource Include="Resources\icon-close-16.png" />
+    <Resource Include="Resources\icon-data-panel-16.png" />
+    <Resource Include="Resources\icon-delete-16.png" />
+    <Resource Include="Resources\icon-driving-16.png" />
+    <Resource Include="Resources\icon-edit-16.png" />
+    <Resource Include="Resources\icon-expand-collapse-32.png" />
+    <Resource Include="Resources\icon-export-16.png" />
+    <Resource Include="Resources\icon-export-40.png" />
+    <Resource Include="Resources\icon-about-16.png" />
+    <Resource Include="Resources\icon-buy-16.png" />
+    <Resource Include="Resources\QuickItems\icon-customer-quick-employees-16.png" />
+    <Resource Include="Resources\QuickItems\icon-customer-quick-locations-16.png" />
+    <Resource Include="Resources\QuickItems\icon-customer-quick-sales-16.png" />
+    <Resource Include="Resources\QuickItems\icon-employee-quick-award-16.png" />
+    <Resource Include="Resources\QuickItems\icon-employee-quick-exellece-16.png" />
+    <Resource Include="Resources\QuickItems\icon-employee-quick-probation-notice-16.png" />
+    <Resource Include="Resources\QuickItems\icon-employee-quick-thank-16.png" />
+    <Resource Include="Resources\QuickItems\icon-employee-quick-welcome-16.png" />
+    <Resource Include="Resources\icon-print-42x40.png" />
+    <Resource Include="Resources\icon-driving-32.png" />
+    <Resource Include="Resources\icon-walking-32.png" />
+    <Resource Include="Resources\MapItems\icon-A-24.png" />
+    <Resource Include="Resources\MapItems\icon-A-32.png" />
+    <Resource Include="Resources\MapItems\icon-arrow-forward-32.png" />
+    <Resource Include="Resources\MapItems\icon-arrow-left-32.png" />
+    <Resource Include="Resources\MapItems\icon-arrow-right-32.png" />
+    <Resource Include="Resources\MapItems\icon-arrow-turn-left-32.png" />
+    <Resource Include="Resources\MapItems\icon-arrow-turn-right-32.png" />
+    <Resource Include="Resources\MapItems\icon-B-24.png" />
+    <Resource Include="Resources\MapItems\icon-B-32.png" />
+    <Resource Include="Resources\MapItems\icon-driving-14.png" />
+    <Resource Include="Resources\MapItems\icon-revert-direction-14.png" />
+    <Resource Include="Resources\MapItems\icon-walking-14.png" />
+    <Resource Include="Resources\icon-close-32.png" />
+    <Resource Include="Resources\icon-email-16.png" />
+    <Resource Include="Resources\icon-home-phone-16.png" />
+    <Resource Include="Resources\icon-mobile-phone-16.png" />
+    <Resource Include="Resources\icon-normal-bottom-16.png" />
+    <Resource Include="Resources\icon-reading-bottom-16.png" />
+    <Resource Include="Resources\icon-reset-changes-32.png" />
+    <Resource Include="Resources\icon-save-32.png" />
+    <Resource Include="Resources\icon-save-close-32.png" />
+    <Resource Include="Resources\icon-skype-16.png" />
+    <Resource Include="Resources\Buttons\glyph-mail-16.png" />
+    <Resource Include="Resources\Buttons\glyph-message-16.png" />
+    <Resource Include="Resources\Buttons\glyph-phone-16.png" />
+    <Resource Include="Resources\Buttons\glyph-video-16.png" />
+    <Resource Include="Resources\Modules\icon-nav-customers-32.png" />
+    <Resource Include="Resources\Modules\icon-nav-employees-32.png" />
+    <Resource Include="Resources\Modules\icon-nav-opportunities-32.png" />
+    <Resource Include="Resources\Modules\icon-nav-products-32.png" />
+    <Resource Include="Resources\Modules\icon-nav-sales-32.png" />
+    <Resource Include="Resources\PrintItems\icon-employee-directory-16.png" />
+    <Resource Include="Resources\PrintItems\icon-employee-directory-32.png" />
+    <Resource Include="Resources\PrintItems\icon-employee-profile-16.png" />
+    <Resource Include="Resources\PrintItems\icon-employee-profile-32.png" />
+    <Resource Include="Resources\PrintItems\icon-employee-summary-16.png" />
+    <Resource Include="Resources\PrintItems\icon-employee-summary-32.png" />
+    <Resource Include="Resources\PrintItems\icon-employee-task-list-16.png" />
+    <Resource Include="Resources\PrintItems\icon-employee-task-list-32.png" />
+    <Resource Include="Resources\Tasks\icon-task-followupall-16.png" />
+    <Resource Include="Resources\Tasks\icon-task-followuptomorrow-16.png" />
+    <Resource Include="Resources\UISuperHero.png" />
+    <Resource Include="Resources\icon-add-column-16.png" />
+    <Resource Include="Resources\icon-change-view-32.png" />
+    <Resource Include="Resources\icon-data-panel-32.png" />
+    <Resource Include="Resources\icon-expand-collapse-16.png" />
+    <Resource Include="Resources\icon-folder-panel-32.png" />
+    <Resource Include="Resources\icon-navigate-32.png" />
+    <Resource Include="Resources\icon-panel-bottom-16.png" />
+    <Resource Include="Resources\icon-panel-off-16.png" />
+    <Resource Include="Resources\icon-panel-right-16.png" />
+    <Resource Include="Resources\icon-revers-sort-16.png" />
+    <Resource Include="Resources\icon-view-reset-32.png" />
+    <Resource Include="Resources\Overview-Buy-Normal.png" />
+    <Resource Include="Resources\Overview-Getting-Started-Normal.png" />
+    <Resource Include="Resources\Overview-Support-Normal.png" />
+    <Resource Include="Resources\icon-about-32.png" />
+    <Resource Include="Resources\icon-buy-32.png" />
+    <Resource Include="Resources\icon-card-32.png" />
+    <Resource Include="Resources\icon-delete-32.png" />
+    <Resource Include="Resources\icon-edit-32.png" />
+    <Resource Include="Resources\icon-filter-32.png" />
+    <Resource Include="Resources\icon-getting-started-32.png" />
+    <Resource Include="Resources\icon-list-32.png" />
+    <Resource Include="Resources\icon-mail-merge-32.png" />
+    <Resource Include="Resources\icon-mapit-32.png" />
+    <Resource Include="Resources\icon-meeting-32.png" />
+    <Resource Include="Resources\icon-new-employee-32.png" />
+    <Resource Include="Resources\icon-new-group-32.png" />
+    <Resource Include="Resources\icon-new-item-32.png" />
+    <Resource Include="Resources\icon-print-32.png" />
+    <Resource Include="Resources\icon-support-32.png" />
+    <Resource Include="Resources\icon-task-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AppIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Doctor.png" />
+    <Resource Include="Resources\Miss.png" />
+    <Resource Include="Resources\Mr.png" />
+    <Resource Include="Resources\Mrs.png" />
+    <Resource Include="Resources\Ms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon-sales-period-lifetime-16.png" />
+    <Resource Include="Resources\icon-sales-period-lifetime-32.png" />
+    <Resource Include="Resources\icon-sales-period-month-16.png" />
+    <Resource Include="Resources\icon-sales-period-month-32.png" />
+    <Resource Include="Resources\icon-sales-period-year-16.png" />
+    <Resource Include="Resources\icon-sales-period-year-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon-Sort-by-Invoice-32.png" />
+    <Resource Include="Resources\icon-Sort-by-OrderDate-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PrintItems\icon-sales-by-store-16.png" />
+    <Resource Include="Resources\PrintItems\icon-sales-invoice-16.png" />
+    <Resource Include="Resources\PrintItems\icon-sales-report-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\QuickItems\icon-sales-quick-invoice-16.png" />
+    <Resource Include="Resources\QuickItems\icon-sales-quick-report-16.png" />
+    <Resource Include="Resources\QuickItems\icon-sales-quick-summary-16.png" />
+    <Resource Include="Resources\QuickItems\icon-sales-quick-thankyou-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon-opportunities-hight-32.png" />
+    <Resource Include="Resources\icon-opportunities-low-32.png" />
+    <Resource Include="Resources\icon-opportunities-medium-32.png" />
+    <Resource Include="Resources\icon-opportunities-unlike-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Priority\HighPriority.png" />
+    <Resource Include="Resources\Priority\LowPriority.png" />
+    <Resource Include="Resources\Priority\MediumPriority.png" />
+    <Resource Include="Resources\Priority\NormalPriority.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jolt-Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DXSplashScreen\Image.png" />
+    <Resource Include="DXSplashScreen\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="clickonce.txt" />
+    <EmbeddedResource Include="Common\CommonResources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonResources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>DevExpress.DevAV.Properties</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dll\System.Data.SQLite.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\System.Data.SQLite.EF6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Employees\All.png" />
+    <Resource Include="Resources\Employees\Commission.png" />
+    <Resource Include="Resources\Employees\OnLeave.png" />
+    <Resource Include="Resources\Employees\Probation.png" />
+    <Resource Include="Resources\Employees\Salaried.png" />
+    <Resource Include="Resources\Employees\Terminated.png" />
+    <Resource Include="Resources\Products\All.png" />
+    <Resource Include="Resources\Products\Automation.png" />
+    <Resource Include="Resources\Products\Monitors.png" />
+    <Resource Include="Resources\Products\Projectors.png" />
+    <Resource Include="Resources\Products\TVs.png" />
+    <Resource Include="Resources\Products\VideoPlayers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\RibbonStyle\Office2007_16x16.png" />
+    <Resource Include="Resources\RibbonStyle\Office2007_32x32.png" />
+    <Resource Include="Resources\RibbonStyle\Office2010_16x16.png" />
+    <Resource Include="Resources\RibbonStyle\Office2010_32x32.png" />
+    <Resource Include="Resources\RibbonStyle\OfficeSlim_16x16.png" />
+    <Resource Include="Resources\RibbonStyle\OfficeSlim_32x32.png" />
+    <Resource Include="Resources\RibbonStyle\TabletOffice_16x16.png" />
+    <Resource Include="Resources\RibbonStyle\TabletOffice_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tasks\icon-droplet-water-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon-new-tasks-16.png" />
+    <Resource Include="Resources\icon-new-tasks-32.png" />
+    <Resource Include="Resources\icon-task-active-16.png" />
+    <Resource Include="Resources\icon-task-active-32.png" />
+    <Resource Include="Resources\icon-task-assignto-16.png" />
+    <Resource Include="Resources\icon-task-assignto-32.png" />
+    <Resource Include="Resources\icon-task-attachment-16.png" />
+    <Resource Include="Resources\icon-task-attachment-32.png" />
+    <Resource Include="Resources\icon-task-currentview-16.png" />
+    <Resource Include="Resources\icon-task-currentview-32.png" />
+    <Resource Include="Resources\icon-task-detailview-16.png" />
+    <Resource Include="Resources\icon-task-detailview-32.png" />
+    <Resource Include="Resources\icon-task-markcomplete-16.png" />
+    <Resource Include="Resources\icon-task-markcomplete-32.png" />
+    <Resource Include="Resources\icon-task-prioritized-16.png" />
+    <Resource Include="Resources\icon-task-prioritized-32.png" />
+    <Resource Include="Resources\icon-task-simplelist-16.png" />
+    <Resource Include="Resources\icon-task-simplelist-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Modules\icon-nav-tasks-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tasks\icon-completed-16.png" />
+    <Resource Include="Resources\Tasks\icon-deferred-16.png" />
+    <Resource Include="Resources\Tasks\icon-inProgress-16.png" />
+    <Resource Include="Resources\Tasks\icon-needAssistance-16.png" />
+    <Resource Include="Resources\Tasks\icon-notStarted-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon-task-highpriority-16.png" />
+    <Resource Include="Resources\icon-task-lowpriority-16.png" />
+    <Resource Include="Resources\icon-task-private-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon-task-categorize-16.png" />
+    <Resource Include="Resources\icon-task-categorize-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tasks\icon-task-followupcustom-16.png" />
+    <Resource Include="Resources\Tasks\icon-task-followupnextweek-16.png" />
+    <Resource Include="Resources\Tasks\icon-task-followupnodate-16.png" />
+    <Resource Include="Resources\Tasks\icon-task-followupthisweek-16.png" />
+    <Resource Include="Resources\Tasks\icon-task-followuptoday-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Tasks\icon-task-followup-16.png" />
+    <Resource Include="Resources\Tasks\icon-task-followup-32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
